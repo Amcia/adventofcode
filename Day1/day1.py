@@ -25,4 +25,5 @@ def solve_captcha(file_name):
                     results.append(int(digit))
     return sum(results)
 
-print(solve_captcha('day1_input'))
+if __name__ == '__main__':
+    print(solve_captcha('day1_input'))
