@@ -29,6 +29,7 @@ What is the solution to your captcha?
 Your puzzle answer was 1253.
 
 The first half of this puzzle is complete! It provides one gold star: *
+
 --- Part Two ---
 
 You notice a progress bar that jumps to 50% completion. Apparently, the door isn't yet satisfied, but it did emit a star as encouragement. The instructions change:
