@@ -25,5 +25,37 @@ def solve_captcha(file_name):
                     results.append(int(digit))
     return sum(results)
 
+
+"""
+Now, instead of considering the next digit, it wants you to consider the digit halfway around the circular list. That is, if your list contains 10 items, only include a digit in your sum if the digit 10/2 = 5 steps forward matches it. Fortunately, your list has an even number of elements.
+
+For example:
+
+    1212 produces 6: the list contains 4 items, and all four digits match the digit 2 items ahead.
+    1221 produces 0, because every comparison is between a 1 and a 2.
+    123425 produces 4, because both 2s match each other, but no other digit has a match.
+    123123 produces 12.
+    12131415 produces 4.
+"""
+
+
+def solve_captcha_second(file_name):
+    results = []
+    with open(file_name) as fp:
+        input_ = fp.read()
+        for i, digit in enumerate(input_):
+            try:
+                # Try to go from the beginning of the list and look up to half away number
+                # when you reached half of the list, go further but look up behind
+                if i < len(input_)/2 and digit == input_[i+len(input_)/2]:
+                    results.append(int(digit))
+                elif i >= len(input_)/2 and digit == input_[i-len(input_)/2]:
+                    results.append(int(digit))
+            except IndexError:
+                pass
+    return sum(results)
+
 if __name__ == '__main__':
     print(solve_captcha('day1_input'))
+    print(solve_captcha_second('day1_input'))
+
