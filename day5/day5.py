@@ -43,6 +43,7 @@ def file_handler_2_star(file_name):
                 break
         print(count)
 
+
 if __name__ == '__main__':
     file_handler_1_star('input')
     file_handler_2_star('input')

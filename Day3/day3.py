@@ -108,28 +108,89 @@ What is the first value written that is larger than your puzzle input?
 Your puzzle input is still 265149.
 """
 
-def sum_of_the_fileds(input):
-    # Allocation of first 3 variables for each line 45 degrees in the main square
-    array = [[1], [1, 2, 4, 5, 10, 11, 23, 25]]
-    counter = 0
-    for i, square in enumerate(array):
-        counter += 1
-        print('Number of square: {:30} Square values:\n{}'.format(i, square))
-        temp_array = []
-        while True:
 
-            array.append()
-        # Point numbers (x,y) are the length of the path to the central point
-        # print('LU:{:10} <-> RU:{:10}'.format(LU, RU))
-        # print('|| {:10}     || {:10}'.format('', ''))
-        # print('LD:{:10} <-> RD:{:10}'.format(LD, RD))
-        # print('Counter: {}'.format(counter))
+class Array:
+    row_0 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    row_1 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    row_2 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    row_3 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    row_4 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    row_5 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    row_6 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    row_7 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    row_8 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    row_9 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    row_10 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    row_11 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    row_12 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    row_13 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    row_14 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    row_15 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    row_16 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    row_17 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    row_18 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    row_19 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    row_20 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    array = []
+    position = []
+
+    def __init__(self):
+        self.row_10[10] = 1
+        self.array = [self.row_0, self.row_1, self.row_2, self.row_3, self.row_4, self.row_5, self.row_6, self.row_7,
+                      self.row_8, self.row_9, self.row_10, self.row_11, self.row_12, self.row_13, self.row_14,
+                      self.row_15, self.row_16, self.row_17, self.row_18, self.row_19, self.row_20]
+        self.position = [0, 0]
+
+    def sum_fields(self):
+        self.array[self.position[1]][self.position[0]] = sum(self.array[self.position[1] - 1][self.position[0]],
+                                                             self.array[self.position[1] + 1][self.position[0]],
+                                                             self.array[self.position[1]][self.position[0] - 1],
+                                                             self.array[self.position[1]][self.position[0] + 1],
+                                                             self.array[self.position[1] - 1][self.position[0] - 1],
+                                                             self.array[self.position[1] + 1][self.position[0] + 1],
+                                                             self.array[self.position[1] - 1][self.position[0] + 1],
+                                                             self.array[self.position[1] + 1][self.position[0] - 1])
+
+    def move_right(self):
+        self.position[0] += 1
+        self.sum_fields()
+
+    def move_up(self):
+        self.position[1] += 1
+        self.sum_fields()
+
+    def move_left(self):
+        self.position[0] -= 1
+        self.sum_fields()
+
+    def move_down(self):
+        self.position[1] -= 1
+        self.sum_fields()
 
 
+def moving_array(arr_obj, input_number):
+    count = 0
+    y = 0
+    x = 1
+    while True:
+        count += 1
+        print(arr_obj.array[arr_obj.position[y]][arr_obj.position[x]])
+        if arr_obj.array[arr_obj.position[y]][arr_obj.position[x]] > input_number:
+            return arr_obj.array[arr_obj.position[y]][arr_obj.position[x]]
+        if arr_obj.array[arr_obj.position[y]+1][arr_obj.position[x]] != 0 or arr_obj.array[arr_obj.position[y]+1][arr_obj.position[x]+1] != 0:
+            arr_obj.move_right()
+        elif arr_obj.array[arr_obj.position[y]][arr_obj.position[x]-1] != 0 or arr_obj.array[arr_obj.position[y]+1][arr_obj.position[x]-1] != 0:
+            arr_obj.move_up()
+        elif arr_obj.array[arr_obj.position[y]-1][arr_obj.position[x]] != 0 or arr_obj.array[arr_obj.position[y]-1][arr_obj.position[x]-1] != 0:
+            arr_obj.move_left()
+        elif arr_obj.array[arr_obj.position[y]][arr_obj.position[x]+1] != 0 or arr_obj.array[arr_obj.position[y]-1][arr_obj.position[x]+1] != 0:
+            arr_obj.move_down()
 
 
 if __name__ == '__main__':
-    print(manhatan_dist(265149))
+    #print(manhatan_dist(265149))
+    arr_1 = Array()
+    print(moving_array(arr_1, 265149))
 
 
 
